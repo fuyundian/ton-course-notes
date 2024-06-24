@@ -29,7 +29,7 @@
   },
   "scripts": {
     "compile": "ts-node ./scripts/compile.ts",
-    "test": "yarn compile 66 yarn jest",
+    "test": "yarn compile && yarn jest",
     "deploy": "TESTNET=true yarn compile && ts-node ./scripts/deploy.ts",
     "deploy:mainnet": "yarn compile && ts-node ./scripts/deploy.ts",
     "onchaintest": "ts-node ./scripts/onchaintest.ts",
