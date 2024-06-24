@@ -47,9 +47,15 @@ const const::mins_ton_for_storage = 10000000; ;;0.01 ton;
         var [balance,_] = get_balance();   
         ;; 比較合約地址餘額
         throw_unless(104,balance - const::mins_ton_for_storage);
-        ;; 獲取退款或餘額最新值為提款基恩
+        ;; 獲取退款或餘額最新值為提款金额
         int return_value = min(withdraw_amount,balance);
         ;; 發送消息模式 0 普通模式 1 轉賬費用和消息費用區分
+        ;;   CARRY_ALL_REMAINING_BALANCE = 128,
+        ;; CARRY_ALL_REMAINING_INCOMING_VALUE = 64,
+        ;; DESTROY_ACCOUNT_IF_ZERO = 32,
+        ;; PAY_GAS_SEPARATELY = 1,
+        ;; IGNORE_ERRORS = 2,
+        ;; NONE = 0
         int msg_mode = 0;
         ;; 發送內部消息
         var msg = begin_cell()
