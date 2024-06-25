@@ -30,7 +30,8 @@ async function onchainTestScript() {
     }
 
     let link =
-        `https://test.tonhub.com/transfer/` +
+        `https://${process.env.TESTNET ? "test" : ""
+        }.tonhub.com/transfer/` +
         address.toString({
             testOnly: process.env.TESTNET ? true : false,
         }) +
