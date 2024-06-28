@@ -84,6 +84,7 @@ const const::mins_ton_for_storage = 10000000; ;;0.01 ton;
             .store_uint(0,1 + 4 + 4 + 64 + 32 + 1 + 1)
             .end_cell();
         send_raw_message(msg,msg_mode);
+        return ();
     }
 
     throw(777);
